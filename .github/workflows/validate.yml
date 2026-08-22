@@ -19,7 +19,7 @@ jobs:
         run: |
           require "yaml"
 
-          forms = Dir[".github/ISSUE_TEMPLATE/*.yml"].sort
+          forms = Dir[".github/ISSUE_TEMPLATE/*.yml"].reject { |path| path.end_with?("/config.yml") }.sort
           abort "expected eight issue forms" unless forms.length == 8
 
           label_definitions = YAML.safe_load_file(".github/labels.yml", aliases: false)
@@ -49,4 +49,3 @@ jobs:
             echo "Public support content must not route users to private repositories." >&2
             exit 1
           fi
-
