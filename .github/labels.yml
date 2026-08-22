@@ -16,6 +16,9 @@
 - name: "type: other"
   color: "6b7280"
   description: "Actionable report outside the standard categories"
+- name: accessibility
+  color: "7057ff"
+  description: "Accessibility and assistive-technology support"
 - name: "product: launcher"
   color: "1d76db"
   description: "Desktop launcher"
@@ -136,4 +139,3 @@
 - name: "not planned"
   color: "ffffff"
   description: "Not currently planned for implementation"
-
