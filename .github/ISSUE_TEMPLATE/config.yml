@@ -4,7 +4,7 @@ contact_links:
     url: https://github.com/kon-218/ligand-x-support/discussions/new?category=q-a
     about: Get help with workflows, methods, and product usage in GitHub Discussions.
   - name: Private account and commercial support
-    url: mailto:support@ligand-x.com
+    url: https://ligand-x.com/contact/
     about: Contact us about accounts, billing, licence keys, confidential data, or commercial terms.
   - name: Report a security vulnerability privately
     url: https://github.com/kon-218/ligand-x-support/security/advisories/new
