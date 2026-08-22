@@ -1,0 +1,92 @@
+name: Scientific result or reproducibility concern
+description: Report a suspected correctness, reproducibility, interpretation, or numerical-stability problem.
+title: "[Scientific]: "
+labels: ["type: scientific", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Scientific concerns receive the same public lifecycle as software defects. Please distinguish a product defect from expected method limitations and supply a reproducible, non-confidential example.
+
+        **Do not upload proprietary compounds, unpublished datasets, patient information, or restricted third-party data.** Use public identifiers or synthetic inputs. Contact [support@ligand-x.com](mailto:support@ligand-x.com) before sharing sensitive material.
+  - type: dropdown
+    id: concern
+    attributes:
+      label: Nature of the concern
+      options: [Scientific correctness, Reproducibility, Numerical stability, Unexpected method behavior, Result interpretation or labeling, Performance affecting validity, Reference or benchmark discrepancy, Other]
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Workflow or module
+      options: [Structure, Docking, Molecular Dynamics, Alignment, MSA, Pocket Finder, ADMET, Boltz2, Quantum Chemistry, ABFE, RBFE, REINVENT, Kinetics, QM/MM, Multi-step workflow, Other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Ligand-X version
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: input
+    id: engine
+    attributes:
+      label: Engine, model, force field, or method
+      description: Include the engine/model version if shown and all method selections that affect the result.
+      placeholder: AutoDock Vina; OpenMM with AMBER14; ORCA 6.x / B3LYP / def2-SVP
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Public reproduction input
+      description: Provide public PDB, PubChem, ChEMBL, or other stable identifiers and any safe preparation steps. Do not attach confidential inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: parameters
+    attributes:
+      label: Parameters and random seeds
+      description: List all non-default parameters, seeds, replicate counts, and relevant hardware settings.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+      description: Include units, uncertainty, replicate behavior, and the exact output being questioned.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result and basis
+      description: Cite a paper, database, documented contract, independent calculation, or physical constraint where possible.
+    validations:
+      required: true
+  - type: textarea
+    id: reproducibility
+    attributes:
+      label: Reproduction frequency and environment
+      description: State how many runs were attempted, how many showed the issue, and relevant CPU/GPU/OS details.
+    validations:
+      required: true
+  - type: input
+    id: references
+    attributes:
+      label: Public references
+      description: DOI, benchmark URL, documentation URL, or related public issue.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched for existing scientific and software reports describing this behavior.
+          required: true
+        - label: The reproduction material is public, synthetic, or mine to disclose.
+          required: true
+        - label: I removed confidential, regulated, personal, and security-sensitive information.
+          required: true
+

@@ -1,0 +1,79 @@
+name: Installation or update problem
+description: Get help with setup, image downloads, upgrades, GPU support, startup, or removal.
+title: "[Install]: "
+labels: ["type: installation", "product: distribution", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when the product cannot be installed or updated. For a launcher UI defect after installation, use the launcher form instead.
+
+        Remove secrets and identifying information from all command output. Never publish registry credentials or licence keys.
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Operation
+      options: [First installation, Reinstallation, Upgrade, Downgrade or version selection, Image download, GPU setup, Starting the runtime, Stopping or uninstalling, Other]
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Windows 11, Windows 10, macOS Apple Silicon, macOS Intel, Ubuntu or Debian Linux, Other Linux]
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: System details
+      placeholder: OS version; architecture; available RAM and disk; GPU and driver if used
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Relevant versions
+      description: Launcher, Ligand-X, Docker Desktop/Engine, and NVIDIA Container Toolkit where relevant.
+      placeholder: Launcher v1.2.3; Ligand-X v1.2.3; Docker Desktop 4.x
+    validations:
+      required: true
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Installation method
+      options: [Windows installer, macOS DMG, Linux AppImage, Launcher runtime download, Manual Docker Compose, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps taken
+      description: Start from the download source and include the step that fails.
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error and observed behavior
+      description: Include exact error text, exit code, and the last successful step.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Relevant launcher, Docker, disk, GPU, or network diagnostics with secrets and private paths removed.
+      render: shell
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I reviewed the current installation documentation.
+          required: true
+        - label: I searched open and closed issues for this problem.
+          required: true
+        - label: I removed credentials, licence keys, private paths, personal data, and other secrets.
+          required: true
+

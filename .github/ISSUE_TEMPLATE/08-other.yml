@@ -1,0 +1,55 @@
+name: Other product issue
+description: Report an actionable Ligand-X problem that does not fit another form.
+title: "[Other]: "
+labels: ["type: other", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this only when none of the specific forms fit. Usage questions belong in [Discussions](https://github.com/kon-218/ligand-x-support/discussions); account, billing, licence-key, confidential, and security matters must be handled privately.
+  - type: input
+    id: summary
+    attributes:
+      label: Concise summary
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Closest product area
+      options: [Launcher, Core or Free platform, Pro module, Installation or distribution, Scientific behavior, Documentation or website, Account or licensing integration, Other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Relevant version
+      placeholder: Ligand-X and launcher version, or not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Explain the actionable problem, context, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction or supporting evidence
+      description: Provide safe steps, public references, and sanitized output.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I checked that none of the more specific issue forms applies.
+          required: true
+        - label: I searched open and closed issues for this problem.
+          required: true
+        - label: This is not a security vulnerability, and I removed credentials, confidential data, licence keys, personal data, and other secrets.
+          required: true
+

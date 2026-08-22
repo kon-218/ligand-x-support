@@ -1,0 +1,52 @@
+name: Validate support repository
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate YAML and issue-form contracts
+        shell: ruby {0}
+        run: |
+          require "yaml"
+
+          forms = Dir[".github/ISSUE_TEMPLATE/*.yml"].sort
+          abort "expected eight issue forms" unless forms.length == 8
+
+          label_definitions = YAML.safe_load_file(".github/labels.yml", aliases: false)
+          labels = label_definitions.map { |entry| entry.fetch("name") }
+          abort "duplicate label definitions" unless labels.uniq.length == labels.length
+
+          forms.each do |path|
+            form = YAML.safe_load_file(path, aliases: false)
+            %w[name description title labels body].each { |key| form.fetch(key) }
+            abort "#{path}: empty form body" if form.fetch("body").empty?
+            unknown = form.fetch("labels") - labels
+            abort "#{path}: undefined labels: #{unknown.join(', ')}" unless unknown.empty?
+            ids = form.fetch("body").filter_map { |item| item["id"] }
+            abort "#{path}: duplicate field ids" unless ids.uniq.length == ids.length
+          end
+
+          config = YAML.safe_load_file(".github/ISSUE_TEMPLATE/config.yml", aliases: false)
+          abort "blank issues must remain disabled" unless config["blank_issues_enabled"] == false
+      - name: Check required policy files and links
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in README.md SUPPORT.md SECURITY.md PRIVACY.md CONTRIBUTING.md TRIAGE.md CODE_OF_CONDUCT.md; do
+            test -s "$file"
+          done
+          if rg -n 'github\.com/kon-218/(ligand-x|ligand-x-pro)/(issues|discussions)' --glob '*.md' --glob '*.yml'; then
+            echo "Public support content must not route users to private repositories." >&2
+            exit 1
+          fi
+

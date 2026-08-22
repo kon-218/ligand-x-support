@@ -1,0 +1,84 @@
+name: Pro module problem
+description: Report a defect in a licensed Ligand-X Pro module or its product-level integration.
+title: "[Pro]: "
+labels: ["type: bug", "product: pro", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pro implementation is delivered through private versioned images. This public issue tracks user-visible status without exposing private source.
+
+        **Never post a licence key, signed licence payload, registry credential, proprietary compound, or confidential result.** Contact [support@ligand-x.com](mailto:support@ligand-x.com) when sanitized evidence is insufficient.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Pro module
+      options: [ADMET, Boltz2, Quantum Chemistry, ABFE, RBFE, REINVENT, Kinetics, QM/MM, Pro image or entitlement integration, Unsure]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Ligand-X product version
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: input
+    id: launcher-version
+    attributes:
+      label: Launcher version
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: dropdown
+    id: license-state
+    attributes:
+      label: Licence status shown by Ligand-X
+      description: Report only the status category—never the key or signed licence contents.
+      options: [Active, Expired, Invalid, Module not entitled, Licence not detected, Status appears active but module fails, Not related to licensing, Unsure]
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, CPU/RAM, GPU and driver, and Docker version where relevant.
+      placeholder: Ubuntu 24.04; 128 GB RAM; RTX 6000 Ada driver 570.x; Docker 27.x
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Prefer a public or synthetic input and list the relevant workflow parameters.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include exact visible error text and job state.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      description: Remove licence material, registry URLs containing credentials, compound data, personal data, and private paths.
+      render: shell
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues for this problem.
+          required: true
+        - label: I have not included licence material, credentials, proprietary structures, confidential results, personal data, or other secrets.
+          required: true
+

@@ -1,0 +1,55 @@
+name: Documentation or website issue
+description: Report missing, incorrect, unclear, or outdated public product information.
+title: "[Docs]: "
+labels: ["type: documentation", "product: documentation", "status: needs-triage"]
+body:
+  - type: dropdown
+    id: location
+    attributes:
+      label: Location
+      options: [Product website, Getting started guide, Installation guide, Capability or scientific documentation, API reference, Launcher README, This support repository, Legal or licensing page, Other]
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL or document
+      placeholder: https://ligand-x.com/…
+    validations:
+      required: true
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: Problem type
+      options: [Incorrect information, Outdated information, Missing information, Unclear wording, Broken link, Rendering or accessibility, Typo or formatting, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current content or behavior
+      description: Quote only the short relevant excerpt or describe what the page does.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Expected correction
+      description: Explain what a user needs to know and, where possible, provide an authoritative public source.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and device
+      description: Required only for rendering, responsive-design, or accessibility problems.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues for this correction.
+          required: true
+        - label: I removed confidential, personal, and security-sensitive information.
+          required: true
+

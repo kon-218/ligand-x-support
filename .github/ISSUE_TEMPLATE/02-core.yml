@@ -1,0 +1,86 @@
+name: Core platform problem
+description: Report a defect in the Ligand-X interface, gateway, infrastructure, or a Free service.
+title: "[Core]: "
+labels: ["type: bug", "product: core", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Core is distributed as versioned runtime images; its implementation repository is private. This public issue will remain the user-visible record of the fix.
+
+        **Do not post secrets or proprietary scientific inputs.** Use a public or synthetic reproduction and review the [privacy guidance](https://github.com/kon-218/ligand-x-support/blob/main/PRIVACY.md).
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options: [Web interface, API gateway, Structure, Docking, Molecular Dynamics, Alignment, Ketcher, MSA, Pocket Finder, Workflow orchestration, Job tracking, Infrastructure or database, Unsure]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Ligand-X version
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: input
+    id: launcher-version
+    attributes:
+      label: Launcher version
+      placeholder: v1.2.3 or not applicable
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, architecture, CPU, RAM, GPU and driver where relevant, Docker version, and browser.
+      placeholder: Ubuntu 24.04 x86_64; 64 GB RAM; RTX 4090 driver 570.x; Docker 27.x; Firefox 141
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use a public PDB/compound identifier or synthetic example wherever possible.
+      placeholder: |
+        1. Open…
+        2. Configure…
+        3. Submit…
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include exact error text and whether the job is queued, running, failed, or missing.
+    validations:
+      required: true
+  - type: input
+    id: job-id
+    attributes:
+      label: Job ID
+      description: Optional. Include only if it is safe to publish and does not expose customer information.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      description: Paste only the relevant excerpt and identify the service. Remove secrets and private paths.
+      render: shell
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues for this problem.
+          required: true
+        - label: I can reproduce this on the stated version or clearly described why I cannot retry it.
+          required: true
+        - label: I removed credentials, licence keys, confidential scientific data, personal data, and other secrets.
+          required: true

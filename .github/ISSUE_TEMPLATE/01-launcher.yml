@@ -1,0 +1,100 @@
+name: Launcher problem
+description: Report a problem installing, configuring, starting, or updating Ligand-X through the desktop launcher.
+title: "[Launcher]: "
+labels: ["type: bug", "product: launcher", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a launcher problem. Search existing issues first and complete every relevant field.
+
+        **Privacy:** Do not post licence keys, tokens, registry credentials, proprietary structures, or confidential logs. See the [privacy guidance](https://github.com/kon-218/ligand-x-support/blob/main/PRIVACY.md).
+  - type: input
+    id: launcher-version
+    attributes:
+      label: Launcher version
+      description: Find this in the launcher About or version display. Use "unknown" if it cannot start.
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: input
+    id: product-version
+    attributes:
+      label: Ligand-X version
+      description: The installed or selected product version, if known.
+      placeholder: v1.2.3 or unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Windows 11, Windows 10, macOS Apple Silicon, macOS Intel, Ubuntu or Debian Linux, Other Linux]
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version and architecture
+      placeholder: Windows 11 24H2 x86_64; macOS 15.1 arm64; Ubuntu 24.04 x86_64
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where does the problem occur?
+      options: [Downloading the launcher, Opening the launcher, Docker detection, Selecting components, Signing in or licensing, Downloading runtime or images, Starting services, Updating, Stopping or uninstalling, Other]
+    validations:
+      required: true
+  - type: input
+    id: docker
+    attributes:
+      label: Container runtime
+      description: Docker Desktop or Docker Engine version and status.
+      placeholder: Docker Desktop 4.x; Docker Engine 27.x; not installed
+    validations:
+      required: true
+  - type: input
+    id: groups
+    attributes:
+      label: Selected components
+      description: List the service groups selected in the launcher.
+      placeholder: Core, Docking, MD, ADMET
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the launcher…
+        2. Select…
+        3. Click…
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the exact visible error message.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized diagnostics
+      description: Paste the smallest relevant launcher or Docker diagnostic excerpt. Redact secrets and identifying paths.
+      render: shell
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues for this problem.
+          required: true
+        - label: I removed credentials, licence keys, confidential structures, personal data, and other secrets.
+          required: true

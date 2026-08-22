@@ -1,0 +1,29 @@
+name: Acknowledge new issues
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  acknowledge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post intake acknowledgement
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "Thank you for contacting Ligand-X Support. This report has entered public triage.",
+                "",
+                "A maintainer may adjust its title or labels and request the minimum additional information needed to reproduce it. Please do not add licence keys, credentials, proprietary structures, regulated data, or other confidential material. Status labels and milestones will reflect progress; see [the triage workflow](https://github.com/kon-218/ligand-x-support/blob/main/TRIAGE.md)."
+              ].join("\n")
+            })
+

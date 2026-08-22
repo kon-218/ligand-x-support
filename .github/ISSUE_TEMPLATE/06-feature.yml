@@ -1,0 +1,62 @@
+name: Feature request
+description: Propose a product capability, workflow improvement, scientific method, or integration.
+title: "[Feature]: "
+labels: ["type: feature", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the user problem before prescribing an implementation. Public discussion does not imply a commitment or release date.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product area
+      options: [Launcher, Installation and updates, Web interface, Core or Free service, Pro module, Workflow orchestration, API or integrations, Documentation, Website, Cross-product, Unsure]
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Module or workflow
+      placeholder: Docking, MD, ADMET, QC, launcher, or not applicable
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Who is affected, what are they trying to accomplish, and why is the current workflow insufficient?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe observable behavior and a successful user experience without assuming a particular internal implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Scientific or operational use case
+      description: Include frequency, scale, input/output expectations, and whether the need is Free, Academic, or Pro.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Current alternatives or workaround
+      description: Explain what you use today and its limitations.
+  - type: input
+    id: references
+    attributes:
+      label: Public references or examples
+      description: Documentation, standards, papers, comparable workflows, or related issues.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues and Discussions for this request.
+          required: true
+        - label: I have not included confidential requirements, proprietary data, credentials, or personal information.
+          required: true
+

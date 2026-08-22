@@ -1,0 +1,15 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a usage question
+    url: https://github.com/kon-218/ligand-x-support/discussions/new?category=q-a
+    about: Get help with workflows, methods, and product usage in GitHub Discussions.
+  - name: Private account and commercial support
+    url: mailto:support@ligand-x.com
+    about: Contact us about accounts, billing, licence keys, confidential data, or commercial terms.
+  - name: Report a security vulnerability privately
+    url: mailto:support@ligand-x.com?subject=Security%20report
+    about: Never disclose suspected vulnerabilities in a public issue.
+  - name: Product documentation
+    url: https://ligand-x.com/getting-started/
+    about: Review installation and usage guidance before opening a support request.
+
