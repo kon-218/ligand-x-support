@@ -19,7 +19,7 @@ chemistry and drug-discovery platform from Ligand-X Inc.
 | Correct product documentation or the website | [Documentation issue](https://github.com/kon-218/ligand-x-support/issues/new?template=07-documentation.yml) |
 | Ask a usage question | [GitHub Discussions](https://github.com/kon-218/ligand-x-support/discussions) |
 | Discuss an account, licence key, billing, or confidential matter | Email [support@ligand-x.com](mailto:support@ligand-x.com) |
-| Report a security vulnerability | Follow the private process in [SECURITY.md](SECURITY.md) |
+| Report a security vulnerability | Use [private vulnerability reporting](https://github.com/kon-218/ligand-x-support/security/advisories/new) and follow [SECURITY.md](SECURITY.md) |
 
 If you are unsure, use the [general product issue](https://github.com/kon-218/ligand-x-support/issues/new?template=08-other.yml).
 
@@ -58,4 +58,3 @@ or professional advice.
 Ligand-X is developed by **Ligand-X Inc.** Product information and documentation are available at
 [ligand-x.com](https://ligand-x.com). Use of this repository is governed by the
 [Code of Conduct](CODE_OF_CONDUCT.md) and [privacy guidance](PRIVACY.md).
-
