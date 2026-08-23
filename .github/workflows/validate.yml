@@ -36,6 +36,37 @@ jobs:
             abort "#{path}: duplicate field ids" unless ids.uniq.length == ids.length
           end
 
+          # These IDs and exact dropdown values are the public URL-prefill
+          # contract used by the Ligand-X application. Renaming one requires a
+          # coordinated application change.
+          app_contract = {
+            "02-core.yml" => {
+              "ids" => %w[component version launcher-version environment actual job-id],
+              "field" => "component",
+              "options" => ["Docking", "Molecular Dynamics", "MSA", "Workflow orchestration"],
+            },
+            "03-pro.yml" => {
+              "ids" => %w[module version launcher-version environment actual job-id],
+              "field" => "module",
+              "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "Kinetics", "QM/MM"],
+            },
+          }
+          app_contract.each do |filename, contract|
+            form = YAML.safe_load_file(".github/ISSUE_TEMPLATE/#{filename}", aliases: false)
+            fields = form.fetch("body").filter_map { |item| item["id"] ? [item["id"], item] : nil }.to_h
+            missing = contract.fetch("ids") - fields.keys
+            abort "#{filename}: missing app-prefill fields: #{missing.join(', ')}" unless missing.empty?
+            options = fields.fetch(contract.fetch("field")).fetch("attributes").fetch("options")
+            missing_options = contract.fetch("options") - options
+            abort "#{filename}: missing app-prefill options: #{missing_options.join(', ')}" unless missing_options.empty?
+          end
+
+          launcher = YAML.safe_load_file(".github/ISSUE_TEMPLATE/01-launcher.yml", aliases: false)
+          launcher_ids = launcher.fetch("body").filter_map { |item| item["id"] }
+          required_launcher_ids = %w[launcher-version product-version os-version actual]
+          missing_launcher_ids = required_launcher_ids - launcher_ids
+          abort "01-launcher.yml: missing launcher-prefill fields: #{missing_launcher_ids.join(', ')}" unless missing_launcher_ids.empty?
+
           config = YAML.safe_load_file(".github/ISSUE_TEMPLATE/config.yml", aliases: false)
           abort "blank issues must remain disabled" unless config["blank_issues_enabled"] == false
       - name: Check required policy files and links

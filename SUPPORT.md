@@ -24,6 +24,14 @@ visible to all affected users.
 
 Security vulnerabilities follow [SECURITY.md](SECURITY.md), not the normal support process.
 
+## Social and press
+
+Follow product news on [X @LigandXinc](https://x.com/LigandXinc) or
+[Instagram @ligandx.inc](https://www.instagram.com/ligandx.inc/). Press and social contact is
+[social@ligand-x.com](mailto:social@ligand-x.com). Those channels are not a substitute for this
+tracker; product defects belong in a public issue or, when they cannot be sanitized, at
+[support@ligand-x.com](mailto:support@ligand-x.com).
+
 ## Service expectations
 
 Maintainers review reports as capacity permits. Labels and milestones communicate current state, but
