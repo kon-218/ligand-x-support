@@ -20,6 +20,8 @@ chemistry and drug-discovery platform from Ligand-X Inc.
 | Ask a usage question | [GitHub Discussions](https://github.com/kon-218/ligand-x-support/discussions) |
 | Discuss an account, licence key, billing, or confidential matter | Email [support@ligand-x.com](mailto:support@ligand-x.com) |
 | Report a security vulnerability | Use [private vulnerability reporting](https://github.com/kon-218/ligand-x-support/security/advisories/new) and follow [SECURITY.md](SECURITY.md) |
+| Follow product news or mention Ligand-X | [X @LigandXinc](https://x.com/LigandXinc) or [Instagram @ligandx.inc](https://www.instagram.com/ligandx.inc/) |
+| Press or social contact | Email [social@ligand-x.com](mailto:social@ligand-x.com) — not for product defects |
 
 If you are unsure, use the [general product issue](https://github.com/kon-218/ligand-x-support/issues/new?template=08-other.yml).
 
@@ -42,6 +44,15 @@ the customer-visible record through triage, implementation, and release.
 structures, unpublished datasets, patient information, or other regulated/confidential data.** If a
 reproduction requires sensitive material, open a sanitized issue first or contact
 [support@ligand-x.com](mailto:support@ligand-x.com).
+
+Recorded jobs in the Ligand-X application offer a **Report issue** action regardless of their current status. It opens a review step
+before preparing this public GitHub form. Only the context selected in that review is sent to GitHub;
+the reporter must still verify the draft and complete the reproduction and expected-behavior fields.
+
+The desktop launcher also provides **Report launcher problem** from its Help menu and Diagnostics view.
+It prefills public build versions and platform information, and includes a visible launcher error only
+when the reporter explicitly reviews and enables it. Launcher configuration and raw logs are never
+attached automatically.
 
 ## What happens after submission
 

@@ -66,6 +66,11 @@ body:
       description: Include exact visible error text and job state.
     validations:
       required: true
+  - type: input
+    id: job-id
+    attributes:
+      label: Job ID
+      description: Optional. Include only if it is safe to publish and does not expose customer information.
   - type: textarea
     id: logs
     attributes:
@@ -81,4 +86,3 @@ body:
           required: true
         - label: I have not included licence material, credentials, proprietary structures, confidential results, personal data, or other secrets.
           required: true
-
