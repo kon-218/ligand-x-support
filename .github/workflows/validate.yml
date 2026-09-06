@@ -41,12 +41,12 @@ jobs:
           # coordinated application change.
           app_contract = {
             "02-core.yml" => {
-              "ids" => %w[component version launcher-version environment actual job-id],
+              "ids" => %w[component version launcher-version environment actual job-id logs],
               "field" => "component",
               "options" => ["Docking", "Molecular Dynamics", "MSA", "Workflow orchestration"],
             },
             "03-pro.yml" => {
-              "ids" => %w[module version launcher-version environment actual job-id],
+              "ids" => %w[module version launcher-version environment actual job-id logs],
               "field" => "module",
               "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "Kinetics", "QM/MM"],
             },
