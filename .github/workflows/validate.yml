@@ -48,7 +48,7 @@ jobs:
             "03-pro.yml" => {
               "ids" => %w[module version launcher-version environment actual job-id logs],
               "field" => "module",
-              "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "Kinetics", "QM/MM"],
+              "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "Kinetics", "BioEmu", "QM/MM"],
             },
           }
           app_contract.each do |filename, contract|
