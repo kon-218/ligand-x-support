@@ -43,12 +43,18 @@ jobs:
             "02-core.yml" => {
               "ids" => %w[component version launcher-version environment actual job-id logs],
               "field" => "component",
-              "options" => ["Docking", "Molecular Dynamics", "MSA", "Workflow orchestration"],
+              "options" => ["Docking", "Molecular Dynamics", "MSA", "Pocket Finder", "Cryptic Pockets",
+                            "Structure preparation", "Library bulk import", "Protein variants",
+                            "Protein sequence score", "Protein variant compare", "Protein structure score",
+                            "Workflow orchestration"],
             },
             "03-pro.yml" => {
               "ids" => %w[module version launcher-version environment actual job-id logs],
               "field" => "module",
-              "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "Kinetics", "BioEmu", "QM/MM"],
+              # Kinetics and QM/MM are internal (owner-only) modules since v0.1.4, so the
+              # public form no longer offers them; the app's prefill for those two tools
+              # leaves the dropdown unselected.
+              "options" => ["ADMET", "Boltz2", "Quantum Chemistry", "ABFE", "RBFE", "REINVENT", "BioEmu"],
             },
           }
           app_contract.each do |filename, contract|
